@@ -1,6 +1,7 @@
 package com.example.sinyakkirill.lab_1_files_aes;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     Button translateButton;
     Button addWordButton;
     Button closeAppButton;
+    Button nextPageButtom;
     ListView dictionaryListView;
 
     @Override
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         translateButton = (Button) findViewById(R.id.btnTranslate);
         addWordButton = (Button) findViewById(R.id.btnAddWord);
         closeAppButton = (Button) findViewById(R.id.btnCloseApp);
+        nextPageButtom = (Button) findViewById(R.id.btnNextPage);
 
         dictionaryListView = (ListView) findViewById(R.id.dictionaryListView);
 
@@ -52,6 +55,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showTransfer(textEditText, transferEditText, readToFile(NOTES));
+            }
+        });
+
+
+
+        nextPageButtom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), FoldersFilesActivity.class);
+                startActivity(intent);
             }
         });
 
